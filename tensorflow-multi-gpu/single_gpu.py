@@ -38,7 +38,7 @@ def training_dataset(epochs=5, batch_size=128):
     from tensorflow.examples.tutorials.mnist import input_data
     mnist_data = input_data.read_data_sets("data")
     all_data_points = mnist_data.train.next_batch(60000)
-    dataset = tf.data.Dataset.from_tensor_slices(all_data_points)
+    dataset = tf.contrib.data.Dataset.from_tensor_slices(all_data_points)
     dataset = dataset.repeat(epochs).shuffle(10000).batch(batch_size)
     return dataset
     
